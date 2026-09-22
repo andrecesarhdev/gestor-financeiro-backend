@@ -5,6 +5,8 @@ import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
 import { CategoriesModule } from './categories/categories.module';
+import { TransactionsModule } from './transactions/transactions.module';
+import { ReportsModule } from './reports/reports.module';
 
 @Module({
   imports: [
@@ -14,6 +16,8 @@ import { CategoriesModule } from './categories/categories.module';
     PrismaModule,
     AuthModule,
     CategoriesModule,
+    TransactionsModule,
+    ReportsModule,
   ],
   controllers: [],
   providers: [
