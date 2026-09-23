@@ -38,24 +38,18 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: backend/package-lock.json
 
       - name: Instalar dependências
-        working-directory: ./backend
         run: npm ci
 
       - name: Gerar Prisma Client
-        working-directory: ./backend
         run: npx prisma generate
 
       - name: Aplicar migrations
-        working-directory: ./backend
         run: npx prisma migrate deploy
 
       - name: Rodar testes
-        working-directory: ./backend
         run: npm test
 
       - name: Build do projeto
-        working-directory: ./backend
         run: npm run build
