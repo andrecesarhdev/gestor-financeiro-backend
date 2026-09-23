@@ -25,9 +25,10 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-    env:
-      DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/gestor_financeiro_test?schema=public"
-      JWT_SECRET: "test-secret-key-para-ci"
+          env:
+             DATABASE_URL: "postgresql://postgres:postgres@localhost:5432/gestor_financeiro_test?schema=public"
+              DIRECT_URL: "postgresql://postgres:postgres@localhost:5432/gestor_financeiro_test?schema=public"
+              JWT_SECRET: "test-secret-key-para-ci"
 
     steps:
       - name: Checkout do código
@@ -36,8 +37,8 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
       - name: Instalar dependências
         run: npm ci
