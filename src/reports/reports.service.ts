@@ -7,6 +7,13 @@ export class ReportsService {
   constructor(private readonly prisma: PrismaService) {}
 
   private getPeriodRange(query: PeriodQueryDto) {
+    if (query.startDate && query.endDate) {
+      const startDate = new Date(query.startDate);
+      const endDate = new Date(query.endDate);
+      endDate.setDate(endDate.getDate() + 1);
+      return { startDate, endDate };
+    }
+
     const now = new Date();
     const month = query.month ?? now.getMonth() + 1;
     const year = query.year ?? now.getFullYear();

@@ -25,6 +25,7 @@ services:
       - "3000:3000"
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/gestor_financeiro?schema=public"
+      DIRECT_URL: "postgresql://postgres:postgres@postgres:5432/gestor_financeiro?schema=public"
       JWT_SECRET: "uma-string-bem-longa-e-aleatoria-que-so-voce-sabe-aqui-12345"
     depends_on:
       postgres:
